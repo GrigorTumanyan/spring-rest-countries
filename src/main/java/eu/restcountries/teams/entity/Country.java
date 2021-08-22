@@ -30,7 +30,7 @@ public class Country {
     @Column
     private String nativeName;
     @Column
-    private int calli;
+    private String calli;
     @Column
     private String capital;
     @Column
