@@ -21,7 +21,7 @@ public class CountryController {
        return ResponseEntity.ok(countryService.getCountry(countryName));
     }
 
-    @GetMapping("get")
+    @GetMapping("gett")
     public ResponseEntity<Country> get (){
         return ResponseEntity.ok(null);
     }
