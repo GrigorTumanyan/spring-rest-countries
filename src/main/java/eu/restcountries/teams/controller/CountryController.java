@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/rest/v2/name/")
+@RequestMapping("/rest/v2/")
 
 public class CountryController {
     @Autowired
     CountryService countryService;
 
-    @GetMapping("{countryName}")
+    @GetMapping("name/{countryName}")
     public ResponseEntity<Country> getCountry (@PathVariable() String countryName){
        return ResponseEntity.ok(countryService.getCountry(countryName));
     }
