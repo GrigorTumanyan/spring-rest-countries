@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/rest/v2/name/")
+@RequestMapping("/rest/v2/namee/")
+
 public class CountryController {
     @Autowired
     CountryService countryService;
