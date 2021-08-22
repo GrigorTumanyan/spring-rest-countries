@@ -20,4 +20,9 @@ public class CountryController {
     public ResponseEntity<Country> getCountry (@PathVariable() String countryName){
        return ResponseEntity.ok(countryService.getCountry(countryName));
     }
+
+    @GetMapping("get")
+    public ResponseEntity<Country> get (){
+        return ResponseEntity.ok(null);
+    }
 }
