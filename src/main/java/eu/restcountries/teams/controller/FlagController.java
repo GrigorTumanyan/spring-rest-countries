@@ -13,15 +13,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/rest/v2")
+@RequestMapping("/rest/v2/flag")
 public class FlagController {
     @Autowired
     private FlagServiceImpl flagService;
 
-    @GetMapping("/flag/{name}")
-    public ResponseEntity<Resource> getFlag(@PathVariable() String name) {
-        File file = new File("src/main/resources/flag/" + name + ".jpg");
-        Resource flag = flagService.getFlag(name, file);
+    @GetMapping("/{name}")
+    public ResponseEntity<Resource> getFlag(@PathVariable() String flagName) {
+        File file = new File("src/main/resources/flag/" + flagName + ".jpg");
+        Resource flag = flagService.getFlag(file);
         return ResponseEntity.ok().contentLength(file.length()).contentType(MediaType.IMAGE_JPEG).body(flag);
     }
 }

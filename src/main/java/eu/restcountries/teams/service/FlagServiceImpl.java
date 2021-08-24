@@ -13,11 +13,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class FlagServiceImpl implements FlagService{
     @Override
-    public Resource getFlag(String flagName,File file) {
-        Path path = Paths.get(file.getAbsolutePath());
+    public Resource getFlag(File file) {
+        Path flagPath = Paths.get(file.getAbsolutePath());
         ByteArrayResource resource = null;
         try {
-            resource = new ByteArrayResource(Files.readAllBytes(path));
+            resource = new ByteArrayResource(Files.readAllBytes(flagPath));
         } catch (IOException e) {
             e.printStackTrace();
         }

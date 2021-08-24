@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/rest/v2/")
-
 public class CountryController {
     @Autowired
     CountryService countryService;
