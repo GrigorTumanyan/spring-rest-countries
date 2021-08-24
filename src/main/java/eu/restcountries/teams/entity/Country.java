@@ -35,4 +35,10 @@ public class Country {
     private String capital;
     @Column
     private String flag_url;
+    @Column
+    private String region;
+    @Column
+    private int population;
+    @Column
+    private double area;
 }
