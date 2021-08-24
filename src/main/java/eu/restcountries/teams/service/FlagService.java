@@ -1,9 +1,7 @@
 package eu.restcountries.teams.service;
 
-import java.io.File;
-
 import org.springframework.core.io.Resource;
 
 public interface FlagService {
-    Resource getFlag(File file);
+    Resource getFlag(String flagName);
 }

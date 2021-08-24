@@ -1,7 +1,7 @@
 package eu.restcountries.teams.service;
 
-import eu.restcountries.teams.entity.Country;
+import eu.restcountries.teams.dto.CountryDto;
 
 public interface CountryService {
-     Country getCountry(String countryName);
+    CountryDto getCountry(String countryName);
 }

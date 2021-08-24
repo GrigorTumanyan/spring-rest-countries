@@ -11,9 +11,14 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
 @Service
-public class FlagServiceImpl implements FlagService{
+public class FlagServiceImpl implements FlagService {
+    private static final String FLAG_IMAGE_PATH_PREFIX = "src/main/resources/flag/";
+    private static final String FLAG_IMAGE_EXTENSION = ".jpg";
+
     @Override
-    public Resource getFlag(File file) {
+    public Resource getFlag(String flagName) {
+        File file = new File(FLAG_IMAGE_PATH_PREFIX + flagName + FLAG_IMAGE_EXTENSION);
+
         Path flagPath = Paths.get(file.getAbsolutePath());
         ByteArrayResource resource = null;
         try {

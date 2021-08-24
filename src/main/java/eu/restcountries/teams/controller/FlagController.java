@@ -1,7 +1,5 @@
 package eu.restcountries.teams.controller;
 
-import java.io.File;
-
 import eu.restcountries.teams.service.FlagServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -12,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
+
 @RestController
 @RequestMapping("/rest/v2/flag")
 public class FlagController {
@@ -19,9 +19,8 @@ public class FlagController {
     private FlagServiceImpl flagService;
 
     @GetMapping("/{flagName}")
-    public ResponseEntity<Resource> getFlag(@PathVariable() String flagName) {
-        File file = new File("src/main/resources/flag/" + flagName + ".jpg");
-        Resource flag = flagService.getFlag(file);
-        return ResponseEntity.ok().contentLength(file.length()).contentType(MediaType.IMAGE_JPEG).body(flag);
+    public ResponseEntity<Resource> getFlag(@PathVariable String flagName) {
+        Resource flag = flagService.getFlag(flagName);
+        return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(flag);
     }
 }
