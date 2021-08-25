@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import eu.restcountries.teams.exception.ResourceNotFoundException;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
@@ -18,14 +19,17 @@ public class FlagServiceImpl implements FlagService {
     @Override
     public Resource getFlag(String flagName) {
         File file = new File(FLAG_IMAGE_PATH_PREFIX + flagName + FLAG_IMAGE_EXTENSION);
-
-        Path flagPath = Paths.get(file.getAbsolutePath());
-        ByteArrayResource resource = null;
-        try {
-            resource = new ByteArrayResource(Files.readAllBytes(flagPath));
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (!file.exists()) {
+            throw new ResourceNotFoundException("flag with give name not found:" + flagName);
+        } else {
+            Path flagPath = Paths.get(file.getAbsolutePath());
+            ByteArrayResource resource = null;
+            try {
+                resource = new ByteArrayResource(Files.readAllBytes(flagPath));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return resource;
         }
-        return resource;
     }
 }
