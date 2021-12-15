@@ -2,7 +2,7 @@ name: spring-rest-2
 
 on:
   push:
-    branches:  [main]
+    branches:  [master]
 
 jobs:
   build:
