@@ -22,7 +22,7 @@ jobs:
           distribution: 'adopt'
           cache: maven
 
-      - run: mvn --batch-mode --clean-snapshots verify
+      - run: mvn --clean verify
 
 
       - name: Print Message
