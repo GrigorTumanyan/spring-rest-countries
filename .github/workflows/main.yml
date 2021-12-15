@@ -2,8 +2,7 @@ name: spring-rest
 
 on:
   push:
-    branches: 
-      main
+    branches:  [main]
 
 jobs:
   build:
