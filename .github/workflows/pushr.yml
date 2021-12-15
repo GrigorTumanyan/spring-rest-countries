@@ -1,4 +1,4 @@
-name: push-request
+name: push
 
 on:
   push:
